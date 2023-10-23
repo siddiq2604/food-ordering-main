@@ -1,0 +1,43 @@
+{% extends 'orders/header.html' %}
+
+{% block content %}
+<style>
+  body::before,
+  body::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+  body::before{
+    clip-path: circle(25% at left 5%);
+    opacity: 0.8;
+    background-image: linear-gradient( 135deg, #234afb 10%, #2f58fb 100%);
+  }
+  body::after{
+    clip-path: circle(20% at right 90%);
+    opacity: 0.8;
+    margin-top: 50px;
+    background-image: linear-gradient( 180deg, #0ef883 10%, #0ff98f 100%);
+  }
+</style>
+    <div class="container-fluid">
+      <div class="row justify-content-center" style="margin-top:20px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.345419596385!2d81.48950297873827!3d16.858798976433434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37b4b3ffffffff%3A0x2ad71378ab4d0898!2sSri%20Vasavi%20Engineering%20College%20and%20pharmacy!5e0!3m2!1sen!2sin!4v1697622866361!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+      </div>
+      <div class="row justify-content-center" style="margin-top:20px;color:aliceblue">
+
+        <ul>
+          <li>located on sri vasavi engineering college canteen.</li>
+          <li>opposite to examination cell</li>
+          <li>beside sports  court</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+{% endblock %}

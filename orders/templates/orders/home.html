@@ -1,0 +1,43 @@
+{% extends 'orders/header.html' %}
+
+{% block content %}
+<style>
+  body::before,
+  body::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+  body::before{
+    clip-path: circle(25% at left 5%);
+    opacity: 0.8;
+    background-image: linear-gradient( 135deg, #234afb 10%, #2f58fb 100%);
+  }
+  body::after{
+    clip-path: circle(20% at right 90%);
+    opacity: 0.8;
+    margin-top: 50px;
+    position: fixed;
+    background-image: linear-gradient( 180deg, #0ef883 10%, #0ff98f 100%);
+    z-index: -3;
+  }
+</style>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        {% for cat in categories %}
+          <div class="card" style="width: 18rem; margin: 20px;"> <!-- The col-sm-4 stuff is that if its on a small screen it will take up a third of the widths-->
+            <img src={{cat.category_gif}} class="card-img-top" alt="gif for category item" style="width:100%;">
+            <div class="card-body">
+              <h5 class="card-title" >{{cat.category_title}}</h5>
+              <p class="card-text">{{cat.category_description|safe}}</p>
+              <a href="{{cat.category_title}}" class="btn btn-dark" >Order {{cat.category_title}}</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+{% endblock %}

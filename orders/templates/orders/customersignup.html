@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+
+
+    <style media="screen">
+        body{
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient( 135deg, #1d183f  10%, #1e1742 100%);
+          }
+
+          body::before,
+          body::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+          }
+          body::before{
+            clip-path: circle(25% at left 5%);
+            opacity: 0.8;
+            background-image: linear-gradient( 135deg, #234afb 10%, #2f58fb 100%);
+          }
+          body::after{
+            opacity: 0.8;
+            margin-top:100px;
+            clip-path: circle(25% at right 90%);
+            background-image: linear-gradient( 180deg, #0ef883 10%, #0ff98f 100%);
+          }
+
+.box {
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: rgba(244, 239, 239, 0.035)!important;
+    border-radius:40px;
+    box-shadow: 0 8px 32px 0 rgba(5, 5, 5, 0.379);
+    backdrop-filter: blur( 100px );
+    -webkit-backdrop-filter: blur( 10px );
+    border: 1px solid rgba(234, 230, 230, 0.13);
+    border-radius: 10px;
+    margin-top: 80px;
+    height: 630px;
+}
+.box input[type="text"]::placeholder,
+.box input[type="password"]::placeholder {
+color: aliceblue;
+}
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #eff2f424;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: rgb(17, 215, 237);
+    border-radius: 24px;
+    transition: 0.25s
+    
+}
+.box input[type="file"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #eff2f424;
+    padding: 2px 10px;
+    width: 250px;
+    outline: none;
+    color: rgb(245, 227, 229);
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color:#fd4f4f;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align:center;
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 300px;
+    border-color: #fd4f4f;
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #fd4f4f;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box input[type="submit"]:hover {
+    background:linear-gradient(to right,#fd4f4f,#fd4f4f)
+}
+
+.forgot {
+    text-decoration: underline
+}
+
+    </style>
+  </head>
+  <body>
+    {% include "vehicle/navbar.html" %}
+    <div class="shape"></div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form class="box" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    <h1>CUSTOMER SIGNUP</h1>
+                    <p style="color: rgb(249, 246, 246);font-size:20px;text-align:center;"> Please enter your details to create account !</p>
+                      {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+                        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+                          {% render_field userForm.username class="form-control" placeholder="Username" %}
+                            {% render_field userForm.password class="form-control" placeholder="Password" %}
+                              {% render_field customerForm.address class="form-control" placeholder="Address" %}
+                                {% render_field customerForm.mobile class="form-control" placeholder="Mobile" %}
+                                  {% render_field customerForm.profile_pic class="form-control" placeholder="Profile pic" %}
+
+                     <input type="submit" name="" value="Create">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

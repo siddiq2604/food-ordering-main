@@ -1,0 +1,47 @@
+{% extends 'orders/header.html' %}
+
+{% block content %}
+<style>
+  body::before,
+  body::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+  body::before{
+    clip-path: circle(25% at left 5%);
+    opacity: 0.8;
+    background-image: linear-gradient( 135deg, #234afb 10%, #2f58fb 100%);
+  }
+  body::after{
+    clip-path: circle(20% at right 90%);
+    opacity: 0.8;
+    margin-top: 50px;
+    position: fixed;
+    background-image: linear-gradient( 180deg, #0ef883 10%, #0ff98f 100%);
+  }
+</style>
+    <div class="container-fluid" style="position: relative;top: 50%;transform: translateY(50%);color:aliceblue">
+      <div class="row justify-content-center">
+        <h3>Opening hours</h3>
+      </div>
+      <div class="row justify-content-center">
+        <p>Sunday	 remains-closes </p>
+      </div>
+      <div class="row justify-content-center">
+
+        <p>monday - saturday 10 am - 6 pm</p>
+
+      </div>
+      <div class="row justify-content-center">
+        <p>Friday - Saturday	11 am - 2:30 am</p>
+      </div>
+      <div class="row justify-content-center">
+        <p>please note that order can only delivered when ordered before closing time </p>
+      </div>
+    </div>
+
+{% endblock %}

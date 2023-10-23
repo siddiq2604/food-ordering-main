@@ -1,0 +1,27 @@
+{% extends 'orders/header.html' %}
+
+
+{% block content %}
+<div class="shape"></div>
+<div class="container">
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <form method="POST"  class="ox">
+                {% csrf_token %}
+                <h1>CUSTOMER Login/SignUp</h1>
+                {{form.as_p}}
+                <label>Email:</label>
+                <input name="Emailaddress" type="email"/>
+                <button class="btn btn-danger" type="submit">Register</button><br><br>
+                If you already have an account, please <a href="/login" class="btn btn-success">LOGIN</a> instead!
+                </form>
+                <!-- <div class="box">
+                Don't have an account? <a href="/register"> <br><strong>Register Here</strong></a>!
+                </div> -->
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'orders/header.html' %}
+
+{% block content %}
+<style>
+    body::before,
+    body::after{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+    body::before{
+      clip-path: circle(25% at left 5%);
+      opacity: 0.8;
+      background-image: linear-gradient( 135deg, #234afb 10%, #2f58fb 100%);
+    }
+    body::after{
+      opacity: 0.8;
+      margin-top:100px;
+      clip-path: circle(25% at right 90%);
+      background-image: linear-gradient( 180deg, #0ef883 10%, #0ff98f 100%);
+    }
+</style>
+    <div class="shape"></div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form method="POST"  class="box">
+                    {% csrf_token %}
+                    <h1>CUSTOMER Login</h1><br><br>
+                    {{form.as_p}}
+                        <br><br><button class="btn btn-success" type="submit">Login</button>
+                       <br> Don't have an account? <a href="/register"> <br><strong>Register Here</strong></a>!
+                    </form>
+                    <!-- <div class="box">
+                    Don't have an account? <a href="/register"> <br><strong>Register Here</strong></a>!
+                    </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
